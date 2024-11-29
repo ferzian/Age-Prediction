@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Age Prediction</title>
+  </head>
+  <body>
+    <h1>Age Prediction</h1>
+
+    <div class="container">
+      <form method="POST" action="/age">
+        <label for="born">Born Year: </label>
+        <input
+          type="number"
+          id="born"
+          name="born"
+          required
+          min="1900"
+          max="2024"
+        />
+        <button type="submit">Predict</button>
+      </form>
+
+      {% if age is not none and age > 0 %}
+      <h2>Result</h2>
+      <p>Born Year: {{ born }}</p>
+      <p>Your Age: {{ age }}</p>
+      {% elif age is not none and age <=0 %}
+      <p>Input Born Year not valid</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
